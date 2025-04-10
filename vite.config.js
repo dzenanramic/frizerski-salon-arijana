@@ -1,9 +1,10 @@
-// vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/frizerski-salon-arijana/", // match your GitHub repo name
   plugins: [react()],
+  base: "/frizerski-salon-arijana/", // Must match repo name EXACTLY
+  build: {
+    outDir: "dist", // Ensure this matches GitHub Pages folder
+  },
 });
