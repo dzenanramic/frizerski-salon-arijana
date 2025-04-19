@@ -4,53 +4,24 @@ import {
   Typography,
   Card,
   CardMedia,
-  CardContent,
   Container,
   IconButton,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import ScissorsIcon from "@mui/icons-material/ContentCut";
 
-const galleryImages = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&auto=format&fit=crop",
-    title: "Balayage Highlights",
-    description: "Natural sun-kissed look",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=500&auto=format&fit=crop",
-    title: "Pixie Cut",
-    description: "Modern short hairstyle",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500&auto=format&fit=crop",
-    title: "Bridal Updo",
-    description: "Elegant wedding style",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1559599076-9c61d8e1b77c?w=500&auto=format&fit=crop",
-    title: "Ombre Coloring",
-    description: "Smooth color transition",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&auto=format&fit=crop",
-    title: "Beach Waves",
-    description: "Casual textured look",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=500&auto=format&fit=crop",
-    title: "Layered Cut",
-    description: "Volume and movement",
-  },
-]; // Keep your existing image array
+// Properly import images using Vite's asset handling
+const imageModules = import.meta.glob("/src/assets/images/0*.jpg", {
+  eager: true,
+});
+
+const galleryImages = Object.values(imageModules).map((module, index) => ({
+  id: index + 1,
+  src: module.default,
+  title: `Image ${index + 1}`,
+  description: `Description for Image ${index + 1}`,
+}));
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -59,16 +30,8 @@ export default function Gallery() {
 
   return (
     <Container maxWidth="lg" sx={{ py: { md: 6, xs: 12 } }}>
-      {/* Enhanced Header */}
+      {/* Header remains the same */}
       <Box textAlign="center" mb={6}>
-        {/* <ScissorsIcon
-          sx={{
-            fontSize: 50,
-            color: theme.palette.primary.main,
-            mb: 2,
-            transform: "rotate(180deg)",
-          }} */}
-        {/* /> */}
         <Typography
           variant="h3"
           gutterBottom
@@ -89,29 +52,9 @@ export default function Gallery() {
         >
           Galerija
         </Typography>
-        {/* <Typography
-          variant="subtitle1"
-          sx={{
-            maxWidth: 700,
-            mx: "auto",
-            userSelect: "none",
-            textShadow: `
-              1px 1px 0 #000,
-              -1px -1px 0 #000,  
-              1px -1px 0 #000,
-              -1px 1px 0 #000,
-              1px 1px 0 #000,
-              2px 2px 3px rgba(0,0,0,0.5)
-            `,
-            fontSize: "1.1rem",
-            letterSpacing: "0.5px",
-          }}
-        >
-          Discover our masterpiece creations that transform beauty into art
-        </Typography> */}
       </Box>
 
-      {/* Enhanced Gallery Grid */}
+      {/* Gallery Grid */}
       <Box
         display="grid"
         gridTemplateColumns={{
@@ -151,37 +94,11 @@ export default function Gallery() {
                 objectPosition: "top center",
               }}
             />
-            {/* <CardContent
-              sx={{
-                bgcolor: theme.palette.background.paper,
-                borderTop: `4px solid ${theme.palette.primary.main}`,
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 600,
-                  mb: 1,
-                  color: theme.palette.text.primary,
-                }}
-              >
-                {image.title}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  color: theme.palette.text.secondary,
-                  lineHeight: 1.6,
-                }}
-              >
-                {image.description}
-              </Typography>
-            </CardContent> */}
           </Card>
         ))}
       </Box>
 
-      {/* Enhanced Image Viewer */}
+      {/* Image Viewer Modal */}
       {selectedImage && (
         <Box
           sx={{
@@ -232,20 +149,6 @@ export default function Gallery() {
                 boxShadow: theme.shadows[24],
               }}
             />
-            {/* <Box
-              sx={{
-                mt: 4,
-                color: "white",
-                textShadow: "0 2px 8px rgba(0,0,0,0.5)",
-              }}
-            >
-              <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
-                {selectedImage.title}
-              </Typography>
-              <Typography variant="h6" sx={{ opacity: 0.9 }}>
-                {selectedImage.description}
-              </Typography>
-            </Box> */}
           </Box>
         </Box>
       )}
