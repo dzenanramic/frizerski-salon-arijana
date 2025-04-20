@@ -65,8 +65,6 @@ export default function Gallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex]);
 
-  // You can then remove the standalone handleKeyDown function
-
   return (
     <Container maxWidth="lg" sx={{ py: { md: 6, xs: 12 } }}>
       {/* Header */}
@@ -207,7 +205,10 @@ export default function Gallery() {
               size="large"
               aria-label="Previous image"
             >
-              <ArrowBackIos fontSize="large" />
+              <ArrowBackIos
+                fontSize="large"
+                sx={{ transform: "translateX(15%)" }}
+              />
             </IconButton>
 
             <IconButton
