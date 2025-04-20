@@ -7,6 +7,7 @@ import Gallery from "./Gallery/Gallery";
 import Contact from "./Contact/Contact";
 import Services from "./Services/Services";
 import { Box } from "@mui/material";
+import Footer from "./Footer/Footer";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
             <Route path="/galerija" element={<Gallery />} />
             <Route path="/kontakt" element={<Contact />} />
           </Routes>
+          {/* Footer can be added here if needed */}
+          <Footer />
         </Router>
       </Box>
     </Box>

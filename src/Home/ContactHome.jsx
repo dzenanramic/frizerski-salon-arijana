@@ -6,6 +6,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PersonIcon from "@mui/icons-material/Person";
 import ScheduleIcon from "@mui/icons-material/Schedule";
+import { FaInstagram } from "react-icons/fa";
 
 function ContactHome() {
   return (
@@ -30,28 +31,6 @@ function ContactHome() {
         },
       }}
     >
-      {/* <Typography
-        variant="h1"
-        sx={{
-          fontSize: { md: "5.5rem", xs: "3rem" },
-          margin: "3rem 0 6rem 0",
-          fontFamily: "Tangerine, cursive",
-          color: "#f8f4e3",
-          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
-          transition: "transform 0.3s ease",
-          zIndex: 1,
-          p: "0.5rem 2rem",
-          borderRadius: "50px",
-          letterSpacing: "15px",
-          userSelect: "none",
-          "&:hover": {
-            transform: "scale(1.05)",
-          },
-        }}
-      >
-        Kako do nas?
-      </Typography> */}
-
       <Box
         sx={{
           display: "flex",
@@ -93,19 +72,6 @@ function ContactHome() {
           </Typography>
 
           <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {/* <Box sx={{ display: "flex", alignItems: "center", gap: "15px" }}>
-              <PersonIcon sx={{ fontSize: "28px", color: "#f8f4e3" }} />
-              <Box>
-                <Typography
-                  variant="body1"
-                  sx={{ fontWeight: "bold", mb: 0.5 }}
-                >
-                  Vlasnica
-                </Typography>
-                <Typography variant="body1">Arijana Petrović</Typography>
-              </Box>
-            </Box> */}
-
             <Box
               sx={{
                 display: "flex",
@@ -139,7 +105,35 @@ function ContactHome() {
               </Typography>
               <Typography variant="body1">+387 65 318 287</Typography>
             </Box>
-
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "15px",
+                flexDirection: { xs: "column", md: "row" },
+                textDecoration: "none",
+                color: "#f8f4e3",
+              }}
+            >
+              <FaInstagram size="28px" style={{ color: "#f8f4e3" }} />
+              <Typography
+                component="a"
+                href="https://www.instagram.com/frizerski_salon_arijana"
+                target="_blank"
+                rel="noopener noreferrer"
+                zIndex={100}
+                sx={{
+                  textDecoration: "none",
+                  color: "#f8f4e3",
+                  cursor: "pointer",
+                  "&:hover": {
+                    opacity: 0.9,
+                  },
+                }}
+              >
+                @frizerski_salon_arijana
+              </Typography>
+            </Box>
             <Box
               sx={{
                 display: "flex",
