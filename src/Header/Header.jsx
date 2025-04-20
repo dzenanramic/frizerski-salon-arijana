@@ -9,11 +9,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-const pages = ["O nama", "Usluge", "Galerija", "Kontakt"];
+const pages = ["Naslovna", "O nama", "Usluge", "Galerija", "Kontakt"];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -68,27 +67,6 @@ function Header() {
                 }}
               />
             </Box>
-            {/* <Typography
-              variant="h6"
-              noWrap
-              component={Link}
-              to="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "Tangerine",
-                fontWeight: 700,
-                fontSize: "40px",
-                letterSpacing: "3px",
-                color: "#f8f4e3",
-                textDecoration: "none",
-                "&:hover": {
-                  color: "#C19A6B",
-                },
-              }}
-            >
-              Arijana
-            </Typography> */}
           </Box>
 
           {/* Mobile menu */}
@@ -147,14 +125,18 @@ function Header() {
                   <Typography
                     textAlign="center"
                     component={Link}
-                    to={`/${page.toLowerCase().replace(/\s+/g, "-")}`}
+                    to={
+                      page === "Početna"
+                        ? "/"
+                        : `/${page.toLowerCase().replace(/\s+/g, "-")}`
+                    }
                     sx={{
                       textDecoration: "none",
                       color: "#f8f4e3",
                       width: "100%",
-                      fontFamily: "Tangerine",
+                      fontFamily: "'Tangerine', cursive",
                       fontSize: "25px",
-                      fontWeight: 500,
+                      fontWeight: 700,
                       "&:hover": {
                         color: "#FFFFFF",
                       },
@@ -179,13 +161,17 @@ function Header() {
               <Button
                 key={page}
                 component={Link}
-                to={`/${page.toLowerCase().replace(/\s+/g, "-")}`}
+                to={
+                  page === "Naslovna"
+                    ? "/"
+                    : `/${page.toLowerCase().replace(/\s+/g, "-")}`
+                }
                 sx={{
                   my: 2,
                   color: "#f8f4e3",
                   border: "none",
                   display: "block",
-                  fontFamily: "Tangerine",
+                  fontFamily: "'Tangerine', cursive",
                   fontSize: "30px",
                   fontWeight: 700,
                   px: 3,
