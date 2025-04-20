@@ -192,15 +192,14 @@ function ContactHome() {
           }}
         >
           <iframe
-            title="Salon Location"
-            width="100%"
-            height="100%"
-            frameBorder="0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2910.4506033670827!2d16.70496047624763!3d44.97912807107015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476733638b59108f%3A0x2ce61e580a0b80e1!2sFrizerski%20salon%20Arijana!5e1!3m2!1shr!2sba!4v1745156996938!5m2!1shr!2sba"
+            width="600"
+            height="450"
             style={{ border: 0 }}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d705.5637823006995!2d16.706891669648943!3d44.97912809819187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767334e71a3a2c5%3A0xfd32f38f4dc8ac94!2sMajora%20Milana%20Tepi%C4%87a%205%2C%20Prijedor%2079101!5e0!3m2!1shr!2sba!4v1743880627966!5m2!1shr!2sba"
             allowFullScreen
             loading="lazy"
-          ></iframe>
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </Box>
       </Box>
     </Box>
